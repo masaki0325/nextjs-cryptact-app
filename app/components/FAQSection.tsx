@@ -102,7 +102,9 @@ export default function FAQSection() {
                     />
                   </button>
                   <div
-                    ref={(el) => (contentRefs.current[index] = el)}
+                    ref={(el) => {
+                      contentRefs.current[index] = el;
+                    }}
                     // アニメーションを滑らかにするため、opacityとtransformを組み合わせる
                     // 開閉時に透明度と位置を変えてふわっと出現させる
                     className={`overflow-hidden transition-all duration-300 ease-in-out ${
