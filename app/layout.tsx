@@ -1,16 +1,13 @@
 import type { Metadata } from "next";
-import localFont from "next/font/local";
 import "./globals.css";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
+import { M_PLUS_Rounded_1c } from "next/font/google";
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-  weight: "100 900",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
-  weight: "100 900",
+const mPlusRounded = M_PLUS_Rounded_1c({
+  weight: ["400", "500", "700"], // 必要なウェイトを指定
+  subsets: ["latin"], // 使用する文字セット。日本語の場合 'japanese' を持つフォントなら指定
+  display: "swap",
 });
 
 export const metadata: Metadata = {
@@ -24,11 +21,11 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-      >
-        {children}
+    <html lang="ja" className={mPlusRounded.className}>
+      <body className="min-h-screen flex flex-col">
+        <Header />
+        <main className="flex-1 bg-gray-50">{children}</main>
+        <Footer />
       </body>
     </html>
   );
