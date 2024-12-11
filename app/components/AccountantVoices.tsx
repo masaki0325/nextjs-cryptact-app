@@ -1,5 +1,4 @@
 // app/components/AccountantVoices.tsx
-import Image from "next/image";
 import { UserCircleIcon } from "@heroicons/react/24/solid";
 
 export default function AccountantVoices() {
